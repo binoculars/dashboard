@@ -1,0 +1,40 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="description" content=""><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="generator" content="Polymer Starter Kit"><title>Dashboard</title><meta name="theme-color" content="#2E3AA1"><link rel="manifest" href="manifest.json"><meta name="msapplication-TileColor" content="#3372DF"><meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="PSK"><link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="apple-mobile-web-app-title" content="Polymer Starter Kit"><link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png"><meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png"><link rel="stylesheet" href="styles/main.css"><script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script><link rel="import" href="elements/elements.html"><style is="custom-style" include="shared-styles"></style><style is="custom-style">
+    body {
+      background-color: black;
+
+    }
+    paper-toolbar {
+      --paper-toolbar-background: #1f1f1f;
+    }
+
+    :root {
+      --foreground-color: white;
+      --background-color: black;
+    }
+
+    #container > div {
+      @apply(--layout-horizontal);
+      @apply(--layout-wrap);
+      color: white;
+    }
+
+    #container > div *:not(dashboard-clock-analog) {
+      border-radius: 8px;
+    }
+
+    .horizontal {
+      @apply(--layout-horizontal);
+    }
+
+    dashboard-temperature.big {
+      @apply(--height-4);
+      @apply(--width-8);
+      --unit: 72px;
+    }
+
+    dashboard-temperature.small {
+      @apply(--height-4);
+      @apply(--width-4);
+      --unit: 72px;
+    }
+  </style></head><body unresolved=""><span id="browser-sync-binding"></span><template is="dom-bind" id="app"><iron-pages attr-for-selected="data-route" selected="{{route}}"><section data-route="home"><yahoo-geo-weather temperature="{{temp}}" high="{{high}}" low="{{low}}"></yahoo-geo-weather><div id="container"><div><dashboard-calendar-month></dashboard-calendar-month><dashboard-calendar-day></dashboard-calendar-day><dashboard-clock-analog></dashboard-clock-analog><dashboard-clock-digital></dashboard-clock-digital></div><div><dashboard-thermometer temperature="{{temp}}"></dashboard-thermometer><div><dashboard-temperature temperature="{{temp}}" class="big"></dashboard-temperature><div class="layout horizontal"><dashboard-temperature temperature="{{high}}" high="" class="small"></dashboard-temperature><dashboard-temperature temperature="{{low}}" low="" class="small"></dashboard-temperature></div></div><dashboard-temperature temperature="{{temp}}" units="C"></dashboard-temperature></div></div></section><section data-route="users"><paper-material elevation="1"><h2 class="page-title">Users</h2><p>This is the users section</p><a href$="{{baseUrl}}users/Addy">Addy</a><br><a href$="{{baseUrl}}users/Rob">Rob</a><br><a href$="{{baseUrl}}users/Chuck">Chuck</a><br><a href$="{{baseUrl}}users/Sam">Sam</a></paper-material></section><section data-route="user-info"><paper-material elevation="1"><h2 class="page-title">User: {{params.name}}</h2><div>This is {{params.name}}'s section</div></paper-material></section><section data-route="contact"><paper-material elevation="1"><h2 class="page-title">Contact</h2><p>This is the contact section</p></paper-material></section></iron-pages><paper-toast id="toast"><span class="toast-hide-button" role="button" tabindex="0" onclick="app.$.toast.hide()">Ok</span></paper-toast></template><script src="scripts/app.js"></script></body></html>
